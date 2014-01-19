@@ -12,7 +12,7 @@ use Doctrine\Common\Collections\ArrayCollection;
  * Class LayoutUnit
  * @package Cmf\LayoutedPageBundle\Doctrine\PHPCR
  */
-class LayoutUnit extends BaseLayout implements ClassNameAwareInterface
+class LayoutUnit extends BaseNode implements ClassNameAwareInterface
 {
 
     /**

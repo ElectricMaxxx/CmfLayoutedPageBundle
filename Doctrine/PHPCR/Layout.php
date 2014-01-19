@@ -14,12 +14,17 @@ use Doctrine\Common\Collections\ArrayCollection;
  * Class Layout
  * @package Cmf\LayoutedPageBundle\Doctrine\PHPCR
  */
-class Layout extends BaseLayout
+class Layout extends BaseNode
 {
     /**
      * @var LayoutGrid[]
      */
     private $grids;
+
+    /**
+     * @var string
+     */
+    private $description;
 
     public function __construct()
     {
@@ -60,6 +65,22 @@ class Layout extends BaseLayout
     public function getGrids()
     {
         return $this->grids;
+    }
+
+    /**
+     * @param string $description
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
     }
 
 

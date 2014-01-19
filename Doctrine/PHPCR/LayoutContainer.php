@@ -2,6 +2,10 @@
 
 namespace Cmf\LayoutedPageBundle\Doctrine\PHPCR;
 
+use Cmf\LayoutedPageBundle\Model\AttributesAwareInterface;
+use Cmf\LayoutedPageBundle\Model\ClassNameAwareInterface;
+use Cmf\LayoutedPageBundle\Model\IdentifierAwareInterface;
+
 
 /**
  * A layout container will contain the the content.
@@ -11,7 +15,10 @@ namespace Cmf\LayoutedPageBundle\Doctrine\PHPCR;
  * Class LayoutContainer
  * @package Cmf\LayoutedPageBundle\Doctrine\PHPCR
  */
-class LayoutContainer
+class LayoutContainer extends BaseNode implements
+    AttributesAwareInterface,
+    ClassNameAwareInterface,
+    IdentifierAwareInterface
 {
     /**
      * @var string

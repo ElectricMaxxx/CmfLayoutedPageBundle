@@ -1,0 +1,26 @@
+<doctrine-mapping
+        xmlns="http://doctrine-project.org/schemas/phpcr-odm/phpcr-mapping"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://doctrine-project.org/schemas/phpcr-odm/phpcr-mapping
+        https://github.com/doctrine/phpcr-odm/raw/master/doctrine-phpcr-odm-mapping.xsd"
+        >
+
+    <mapped-superclass
+            name="Cmf\LayoutedPageBundle\Doctrine\PHPCR\BaseNode"
+            referenceable="true"
+            >
+
+        <id name="id">
+            <generator strategy="PARENT"/>
+        </id>
+        <nodename name="node" />
+        <parent-document name="parent">
+            <cascade>
+                <cascade-persist/>
+            </cascade>
+        </parent-document>
+        <field name="path" />
+        <field name="title" type="string"/>
+    </mapped-superclass>
+
+</doctrine-mapping>
