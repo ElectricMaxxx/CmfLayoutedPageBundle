@@ -1,6 +1,6 @@
 <?php
 
-namespace Cmf\LayoutedPageBundle\Doctrine\PHPCR;
+namespace Cmf\LayoutedPageBundle\Document\PHPCR;
 
 use Cmf\LayoutedPageBundle\Model\ClassNameAwareInterface;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -10,7 +10,7 @@ use Doctrine\Common\Collections\ArrayCollection;
  * content in the frontend view.
  *
  * Class LayoutGrid
- * @package Cmf\LayoutedPageBundle\Doctrine\PHPCR
+ * @package Cmf\LayoutedPageBundle\Document\PHPCR
  */
 class LayoutGrid extends BaseNode implements ClassNameAwareInterface
 {

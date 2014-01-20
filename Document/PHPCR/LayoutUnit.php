@@ -1,6 +1,6 @@
 <?php
 
-namespace Cmf\LayoutedPageBundle\Doctrine\PHPCR;
+namespace Cmf\LayoutedPageBundle\Document\PHPCR;
 
 use Cmf\LayoutedPageBundle\Model\ClassNameAwareInterface;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -10,7 +10,7 @@ use Doctrine\Common\Collections\ArrayCollection;
  * containers as children to map content to the layout.
  *
  * Class LayoutUnit
- * @package Cmf\LayoutedPageBundle\Doctrine\PHPCR
+ * @package Cmf\LayoutedPageBundle\Document\PHPCR
  */
 class LayoutUnit extends BaseNode implements ClassNameAwareInterface
 {
@@ -57,7 +57,7 @@ class LayoutUnit extends BaseNode implements ClassNameAwareInterface
     }
 
     /**
-     * @param \Cmf\LayoutedPageBundle\Doctrine\PHPCR\LayoutContainer[] $container
+     * @param \Cmf\LayoutedPageBundle\Document\PHPCR\LayoutContainer[] $container
      */
     public function setContainer($container)
     {
@@ -65,7 +65,7 @@ class LayoutUnit extends BaseNode implements ClassNameAwareInterface
     }
 
     /**
-     * @return \Cmf\LayoutedPageBundle\Doctrine\PHPCR\LayoutContainer[]
+     * @return \Cmf\LayoutedPageBundle\Document\PHPCR\LayoutContainer[]
      */
     public function getContainer()
     {
@@ -89,7 +89,7 @@ class LayoutUnit extends BaseNode implements ClassNameAwareInterface
     }
 
     /**
-     * @param \Cmf\LayoutedPageBundle\Doctrine\PHPCR\LayoutGrid[] $grids
+     * @param \Cmf\LayoutedPageBundle\Document\PHPCR\LayoutGrid[] $grids
      */
     public function setGrids($grids)
     {
@@ -97,7 +97,7 @@ class LayoutUnit extends BaseNode implements ClassNameAwareInterface
     }
 
     /**
-     * @return \Cmf\LayoutedPageBundle\Doctrine\PHPCR\LayoutGrid[]
+     * @return \Cmf\LayoutedPageBundle\Document\PHPCR\LayoutGrid[]
      */
     public function getGrids()
     {

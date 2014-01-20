@@ -6,20 +6,19 @@
         >
 
     <mapped-superclass
-            name="Cmf\LayoutedPageBundle\Doctrine\PHPCR\BaseNode"
+            name="Cmf\LayoutedPageBundle\Document\PHPCR\BaseNode"
             referenceable="true"
             >
 
         <id name="id">
             <generator strategy="PARENT"/>
         </id>
-        <nodename name="node" />
+        <nodename name="name" />
         <parent-document name="parent">
             <cascade>
                 <cascade-persist/>
             </cascade>
         </parent-document>
-        <field name="path" />
         <field name="title" type="string"/>
     </mapped-superclass>
 

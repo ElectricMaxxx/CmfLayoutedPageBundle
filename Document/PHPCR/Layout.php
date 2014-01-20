@@ -1,6 +1,6 @@
 <?php
 
-namespace Cmf\LayoutedPageBundle\Doctrine\PHPCR;
+namespace Cmf\LayoutedPageBundle\Document\PHPCR;
 
 use Doctrine\Common\Collections\ArrayCollection;
 
@@ -12,7 +12,7 @@ use Doctrine\Common\Collections\ArrayCollection;
  * Every Grid will get a sortOrder property to get them in the right order.
  *
  * Class Layout
- * @package Cmf\LayoutedPageBundle\Doctrine\PHPCR
+ * @package Cmf\LayoutedPageBundle\Document\PHPCR
  */
 class Layout extends BaseNode
 {

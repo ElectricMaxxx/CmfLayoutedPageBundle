@@ -4,17 +4,38 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
-    <!--
     <parameters>
-        <parameter key="cmf_layouted_page.example.class">Cmf\LayoutedPageBundle\Example</parameter>
+        <parameter key="cmf_layouted_page.layout.admin_class">Cmf\LayoutedPageBundle\Admin\LayoutAdminController</parameter>
+        <parameter key="cmf_layouted_page.layout.document_class">Cmf\LayoutedPageBundle\Document\PHPCR\Layout</parameter>
     </parameters>
 
     <services>
-        <service id="cmf_layouted_page.example" class="%cmf_layouted_page.example.class%">
-            <argument type="service" id="service_id" />
-            <argument>plain_value</argument>
-            <argument>%parameter_name%</argument>
+        <service class="Doctrine\Bundle\PHPCRBundle\Initializer\GenericInitializer" id="cmf_layouted_page.phpcr.initializer">
+            <argument type="collection">
+                <argument>%cmf_layouted_page.layout_path%</argument>
+                <argument>%cmf_layouted_page.page_path%</argument>
+            </argument>
+            <tag name="doctrine_phpcr.initializer"/>
+        </service>
+        <service id="cmf_layouted_page.layout.admin" class="%cmf_layouted_page.layout.admin_class%">
+            <tag name="sonata.admin" manager_type="doctrine_phpcr" group="dashboard.group_layout" label_catalogue="CmfLayoutedPageBundle" label="dashboard.label_layout" label_translator_strategy="sonata.admin.label.strategy.underscore" />
+            <argument/>
+            <argument>%cmf_layouted_page.layout.document_class%</argument>
+            <argument>SonataAdminBundle:CRUD</argument>
+
+            <call method="setRouteBuilder">
+                <argument type="service" id="sonata.admin.route.path_info_slashes" />
+            </call>
         </service>
     </services>
-    -->
+
+    <!--
+        <services>
+            <service id="cmf_layouted_page.example" class="%cmf_layouted_page.example.class%">
+                <argument type="service" id="service_id" />
+                <argument>plain_value</argument>
+                <argument>%parameter_name%</argument>
+            </service>
+        </services>
+        -->
 </container>

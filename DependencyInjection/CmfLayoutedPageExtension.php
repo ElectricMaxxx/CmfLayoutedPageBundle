@@ -2,6 +2,7 @@
 
 namespace Cmf\LayoutedPageBundle\DependencyInjection;
 
+use PHPCR\Util\PathHelper;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
@@ -24,5 +25,11 @@ class CmfLayoutedPageExtension extends Extension
 
         $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.xml');
+
+        $layoutPath = PathHelper::absolutizePath($config['layout_path'], $config['base_path']);
+        $container->setParameter($this->getAlias().'.layout_path', $layoutPath);
+
+        $pagePath = PathHelper::absolutizePath($config['page_path'], $config['base_path']);
+        $container->setParameter($this->getAlias().'.page_path', $pagePath);
     }
 }

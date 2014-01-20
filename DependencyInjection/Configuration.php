@@ -23,7 +23,12 @@ class Configuration implements ConfigurationInterface
         // Here you should define the parameters that are allowed to
         // configure your bundle. See the documentation linked above for
         // more information on that topic.
-
+        $rootNode
+            ->children()
+                ->scalarNode('base_path')->defaultValue('/cms/layout')->end()
+                ->scalarNode('layout_path')->defaultValue('layouts')->end()
+                ->scalarNode('page_path')->defaultValue('pages')->end()
+            ;
         return $treeBuilder;
     }
 }

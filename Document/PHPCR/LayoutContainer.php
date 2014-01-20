@@ -1,6 +1,6 @@
 <?php
 
-namespace Cmf\LayoutedPageBundle\Doctrine\PHPCR;
+namespace Cmf\LayoutedPageBundle\Document\PHPCR;
 
 use Cmf\LayoutedPageBundle\Model\AttributesAwareInterface;
 use Cmf\LayoutedPageBundle\Model\ClassNameAwareInterface;
@@ -13,7 +13,7 @@ use Cmf\LayoutedPageBundle\Model\IdentifierAwareInterface;
  * layout container and a specific content block.
  *
  * Class LayoutContainer
- * @package Cmf\LayoutedPageBundle\Doctrine\PHPCR
+ * @package Cmf\LayoutedPageBundle\Document\PHPCR
  */
 class LayoutContainer extends BaseNode implements
     AttributesAwareInterface,

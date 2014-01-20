@@ -1,6 +1,6 @@
 <?php
 
-namespace Cmf\LayoutedPageBundle\Doctrine\PHPCR;
+namespace Cmf\LayoutedPageBundle\Document\PHPCR;
 
 use Doctrine\Common\Collections\ArrayCollection;
 
@@ -9,7 +9,7 @@ use Doctrine\Common\Collections\ArrayCollection;
  * The LayoutedPageBlock will store them as children.
  *
  * Class LayoutContainerReferenceBlock
- * @package Cmf\LayoutedPageBundle\Doctrine\PHPCR
+ * @package Cmf\LayoutedPageBundle\Document\PHPCR
  */
 class LayoutContainerReferenceBlock
 {

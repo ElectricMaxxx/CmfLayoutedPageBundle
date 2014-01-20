@@ -1,42 +1,26 @@
 <?php
 
-namespace Cmf\LayoutedPageBundle\Doctrine\PHPCR;
+namespace Cmf\LayoutedPageBundle\Document\PHPCR;
 
 /**
  * This class will contain all properties that the layout class will have in common.
  *
  * Class BaseLayout
- * @package Cmf\LayoutedPageBundle\Doctrine\PHPCR
+ * @package Cmf\LayoutedPageBundle\Document\PHPCR
  */
-abstract class BaseLayout
+abstract class BaseNode
 {
+    private $id;
+
     private $node;
 
     private $parent;
-
-    private $id;
 
     private $path;
 
     private $title;
 
-    private $description;
-
-    /**
-     * @param mixed $description
-     */
-    public function setDescription($description)
-    {
-        $this->description = $description;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getDescription()
-    {
-        return $this->description;
-    }
+    private $name;
 
     /**
      * @param mixed $id
@@ -116,6 +100,22 @@ abstract class BaseLayout
     public function getTitle()
     {
         return $this->title;
+    }
+
+    /**
+     * @param mixed $name
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getName()
+    {
+        return $this->name;
     }
 
 
