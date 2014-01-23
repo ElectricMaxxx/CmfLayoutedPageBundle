@@ -26,8 +26,8 @@ class LayoutAdminController extends Admin
     {
         $formMapper
             ->with('form.group_general')
-            ->add('title', 'text')
-            ->add('description', 'textarea')
+                ->add('title', 'text')
+                ->add('description', 'textarea')
             ->end();
     }
 

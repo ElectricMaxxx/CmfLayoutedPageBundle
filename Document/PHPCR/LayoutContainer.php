@@ -31,6 +31,7 @@ class LayoutContainer extends BaseNode implements
     private $identifier;
 
     /**
+     * @todo need to decide how to persist this array, wanna get several custom attributes
      * @var $attributes[]
      */
     private $attributes = array();

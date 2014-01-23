@@ -1,0 +1,20 @@
+<doctrine-mapping
+        xmlns="http://doctrine-project.org/schemas/phpcr-odm/phpcr-mapping"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://doctrine-project.org/schemas/phpcr-odm/phpcr-mapping
+        https://github.com/doctrine/phpcr-odm/raw/master/doctrine-phpcr-odm-mapping.xsd"
+        >
+    <document
+            name="Cmf\LayoutedPageBundle\Document\PHPCR\LayoutContainerReferenceBlock"
+            referenceable="true"
+            >
+        <children name="contents">
+            <cascade><cascade-persist/></cascade>
+        </children>
+        <reference-one name="layoutContainer" target-document="Cmf\LayoutedPageBundle\Document\PHPCR\LayoutContainer">
+            <cascade>
+                <cascade-persist/>
+            </cascade>
+        </reference-one>
+    </document>
+</doctrine-mapping>

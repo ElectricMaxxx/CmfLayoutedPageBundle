@@ -15,7 +15,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 class LayoutGrid extends BaseNode implements ClassNameAwareInterface
 {
     /**
-     * You can set an extra class name to the grid container
+     * You can set an extra class name to the grid
      *
      * @var string
      */
