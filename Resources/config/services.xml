@@ -7,6 +7,8 @@
     <parameters>
         <parameter key="cmf_layouted_page.layout.admin_class">Cmf\LayoutedPageBundle\Admin\LayoutAdminController</parameter>
         <parameter key="cmf_layouted_page.layout.document_class">Cmf\LayoutedPageBundle\Document\PHPCR\Layout</parameter>
+        <parameter key="cmf_layouted_page.layout_grid.admin_class">Cmf\LayoutedPageBundle\Admin\LayoutGridAdminController</parameter>
+        <parameter key="cmf_layouted_page.layout_grid.document_class">Cmf\LayoutedPageBundle\Document\PHPCR\LayoutGrid</parameter>
     </parameters>
 
     <services>
@@ -18,7 +20,14 @@
             <tag name="doctrine_phpcr.initializer"/>
         </service>
         <service id="cmf_layouted_page.layout.admin" class="%cmf_layouted_page.layout.admin_class%">
-            <tag name="sonata.admin" manager_type="doctrine_phpcr" group="dashboard.group_layout" label_catalogue="CmfLayoutedPageBundle" label="dashboard.label_layout" label_translator_strategy="sonata.admin.label.strategy.underscore" />
+            <tag
+                    name="sonata.admin"
+                    manager_type="doctrine_phpcr"
+                    group="dashboard.group_layout"
+                    label_catalogue="CmfLayoutedPageBundle"
+                    label="dashboard.label_layout"
+                    label_translator_strategy="sonata.admin.label.strategy.underscore"
+                    />
             <argument/>
             <argument>%cmf_layouted_page.layout.document_class%</argument>
             <argument>SonataAdminBundle:CRUD</argument>
@@ -26,6 +35,32 @@
             <call method="setRouteBuilder">
                 <argument type="service" id="sonata.admin.route.path_info_slashes" />
             </call>
+            <call method="setEmbeddedGridsAdmin">
+                <argument>cmf_layouted_page.layout_grid.admin</argument>
+            </call>
+        </service>
+        <service id="cmf_layouted_page.layout_grid.admin" class="%cmf_layouted_page.layout_grid.admin_class%">
+            <tag
+                    name="sonata.admin"
+                    manager_type="doctrine_phpcr"
+                    group="dashboard.group_layout"
+                    label_catalogue="CmfLayoutedPageBundle"
+                    label="dashboard.label_layout"
+                    label_translator_strategy="sonata.admin.label.strategy.underscore"
+                    />
+            <argument/>
+            <argument>%cmf_layouted_page.layout_grid.document_class%</argument>
+            <argument>SonataAdminBundle:CRUD</argument>
+
+            <call method="setRouteBuilder">
+                <argument type="service" id="sonata.admin.route.path_info_slashes" />
+            </call>
+        </service>
+        <service id="cmf_layouted_page.form.type.layout_manager" class="Cmf\LayoutedPageBundle\Form\Type\LayoutManagerType">
+            <tag name="form.type" alias="layout_manager" />
+        </service>
+        <service id="cmf_layouted_page.form.type.grid_collection" class="Cmf\LayoutedPageBundle\Form\Type\LayoutGridCollectionType">
+            <tag name="form.type" alias="grid_collection" />
         </service>
     </services>
 

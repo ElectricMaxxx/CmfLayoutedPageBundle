@@ -1,0 +1,7 @@
+{% block layout_manager_widget %}
+    {% spaceless %}
+        <div class="form-grid-container" {{ block('widget_container_attributes') }} >
+            {{ block('form_widget_layout_manager') }}
+        </div>
+    {% endspaceless %}
+{% endblock %}

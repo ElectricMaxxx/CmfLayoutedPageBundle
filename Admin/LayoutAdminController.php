@@ -3,6 +3,7 @@
 namespace Cmf\LayoutedPageBundle\Admin;
 
 use Cmf\LayoutedPageBundle\Document\PHPCR\Layout;
+use Cmf\LayoutedPageBundle\Form\Type\LayoutGridCollectionType;
 use Sonata\DoctrinePHPCRAdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
@@ -13,6 +14,24 @@ class LayoutAdminController extends Admin
     protected $baseRouteName = 'sonata_layout';
 
     protected $baseRoutePattern = 'layout';
+
+    /**
+     * Service name of the sonata_type_collection service to embed
+     *
+     * @var string
+     */
+    protected $embeddedAdminCode;
+
+    /**
+     * Configure the service name (admin_code) of the admin service for the embedded slides
+     *
+     * @param string $adminCode
+     */
+    public function setEmbeddedGridsAdmin($adminCode)
+    {
+        $this->embeddedAdminCode = $adminCode;
+    }
+
 
     protected function configureListFields(ListMapper $listMapper)
     {
@@ -28,6 +47,16 @@ class LayoutAdminController extends Admin
             ->with('form.group_general')
                 ->add('title', 'text')
                 ->add('description', 'textarea')
+            ->with('layout_manager')
+                ->add(
+                    'grids','sonata_type_collection',
+                     array(),
+                     array(
+                        'edit' => 'standard',
+                        'inline' => 'table',
+                        'admin_code' => $this->embeddedAdminCode
+                     )
+                )
             ->end();
     }
 

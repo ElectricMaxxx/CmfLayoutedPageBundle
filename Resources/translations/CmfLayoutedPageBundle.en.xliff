@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="" >
+        <body>
+            <trans-unit id="form.label_description">
+                <source>form.label_description</source>
+                <target>Description</target>
+            </trans-unit>
+            <trans-unit id="form.label_title">
+                <source>form.label_title</source>
+                <target>Layout title</target>
+            </trans-unit>
+            <trans-unit id="form.label_grids">
+                <source>form.label_grids</source>
+                <target>Layout Grids/Rows</target>
+            </trans-unit>
+            <trans-unit id="form.group_general">
+                <source>form.group_general</source>
+                <target>General</target>
+            </trans-unit>
+            <trans-unit id="layout_manager">
+                <source>layout_manager</source>
+                <target>Layout manager</target>
+            </trans-unit>
+            <trans-unit id="dashboard.label_layout">
+                <source>dashboard.label_layout</source>
+                <target>Layouts</target>
+            </trans-unit>
+            <trans-unit id="dashboard.group_layout">
+                <source>dashboard.group_layout</source>
+                <target>Layout</target>
+            </trans-unit>
+            <trans-unit id="breadcrumb.layout_list">
+                <source>breadcrumb.layout_list</source>
+                <target>Layout lists</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>
