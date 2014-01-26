@@ -9,7 +9,7 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 
-class LayoutAdminController extends Admin
+class LayoutAdminController extends AbstractBlockAdmin
 {
     protected $baseRouteName = 'sonata_layout';
 
@@ -20,19 +20,21 @@ class LayoutAdminController extends Admin
      *
      * @var string
      */
-    protected $embeddedAdminCode;
+    protected $embeddedGridAdminCode;
 
     /**
-     * Configure the service name (admin_code) of the admin service for the embedded slides
+     * Configure the service name (admin_code) of the admin service for the grids
      *
      * @param string $adminCode
      */
     public function setEmbeddedGridsAdmin($adminCode)
     {
-        $this->embeddedAdminCode = $adminCode;
+        $this->embeddedGridAdminCode = $adminCode;
     }
 
-
+    /**
+     * {@inheritDoc}
+     */
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
@@ -41,6 +43,17 @@ class LayoutAdminController extends Admin
         ;
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    protected function configureDatagridFilters(DatagridMapper $datagridMapper)
+    {
+        $datagridMapper->add('title', 'doctrine_phpcr_string');
+    }
+
+    /**
+     * {@inheritDoc}
+     */
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
@@ -54,12 +67,16 @@ class LayoutAdminController extends Admin
                      array(
                         'edit' => 'standard',
                         'inline' => 'table',
-                        'admin_code' => $this->embeddedAdminCode
+                        'admin_code' => $this->embeddedGridAdminCode
                      )
                 )
             ->end();
     }
 
+    /**
+     * @param Layout $document
+     * @return void
+     */
     public function prePersist($document)
     {
         //getting the parent
@@ -67,25 +84,29 @@ class LayoutAdminController extends Admin
         $document->setParent($parent);
 
         //getting the node name from title
-        $name = $document->getTitle();
+        $name = $document->clearStringForName($document->getTitle());
         $document->setName($name);
 
+        //set the parent documents for all grids to the current document
+        foreach ($document->getGrids() as $grid) {
+            $grid->setParentDocument($this);
+        }
     }
 
     /**
      * @param Layout $document
-     * @return mixed|void
+     * @return void
      */
     public function preUpdate($document)
     {
         //getting the node name from title
-        $name = $document->getTitle();
+        $name = $document->clearStringForName($document->getTitle());
         $document->setName($name);
-    }
 
-    protected function configureDatagridFilters(DatagridMapper $datagridMapper)
-    {
-        $datagridMapper->add('title', 'doctrine_phpcr_string');
+        //set the parent documents for all grids to the current document
+        foreach ($document->getGrids() as $grid) {
+            $grid->setParentDocument($this);
+        }
     }
 
     public function getExportFormats()

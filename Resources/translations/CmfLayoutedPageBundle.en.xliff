@@ -26,13 +26,33 @@
                 <source>dashboard.label_layout</source>
                 <target>Layouts</target>
             </trans-unit>
+            <trans-unit id="dashboard.label_layout_grid">
+                <source>dashboard.label_layout_grid</source>
+                <target>LayoutGrids</target>
+            </trans-unit>
             <trans-unit id="dashboard.group_layout">
                 <source>dashboard.group_layout</source>
                 <target>Layout</target>
             </trans-unit>
-            <trans-unit id="breadcrumb.layout_list">
-                <source>breadcrumb.layout_list</source>
-                <target>Layout lists</target>
+            <trans-unit id="breadcrumb.link_layout_list">
+                <source>breadcrumb.link_layout_list</source>
+                <target>Layout Lists</target>
+            </trans-unit>
+            <trans-unit id="breadcrumb.link_layout_grid_list">
+                <source>breadcrumb.link_layout_grid_list</source>
+                <target>LayoutGrids Lists</target>
+            </trans-unit>
+            <trans-unit id="list.label_title">
+                <source>list.label_title</source>
+                <target>Title</target>
+            </trans-unit>
+            <trans-unit id="list.label_name">
+                <source>list.label_name</source>
+                <target>Name</target>
+            </trans-unit>
+            <trans-unit id="form.label_class_name">
+                <source>form.label_class_name</source>
+                <target>ClassName</target>
             </trans-unit>
         </body>
     </file>

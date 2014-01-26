@@ -2,6 +2,8 @@
 
 namespace Cmf\LayoutedPageBundle\Document\PHPCR;
 
+use Sonata\BlockBundle\Model\BlockInterface;
+
 /**
  * This class will contain all properties that the layout class will have in common.
  *
@@ -14,7 +16,7 @@ abstract class BaseNode
 
     private $node;
 
-    private $parent;
+    private $parentDocument;
 
     private $path;
 
@@ -57,17 +59,37 @@ abstract class BaseNode
     /**
      * @param mixed $parent
      */
-    public function setParent($parent)
+    public function setParentDocument($parent = null)
     {
-        $this->parent = $parent;
+        $this->parentDocument = $parent;
     }
 
     /**
      * @return mixed
      */
+    public function getParentDocument()
+    {
+        return $this->parentDocument;
+    }
+
+    /**
+     * @param $parent
+     */
+    public function setParent($parent)
+    {
+        $this->setParentDocument($parent);
+    }
+
+    /**
+     * @return BaseNode |null
+     */
     public function getParent()
     {
-        return $this->parent;
+        if ($this->getParentDocument() instanceof BlockInterface) {
+            return $this->getParentDocument();
+        }
+
+        return null;
     }
 
     /**
@@ -118,6 +140,23 @@ abstract class BaseNode
         return $this->name;
     }
 
+    /**
+     * this method will clear a string to use it as an node nome or in a url
+     *
+     * @param string $string
+     * @return string $string
+     */
+    public function clearStringForName($string)
+    {
+        $sourceChars = ['Ö', 'ö', 'Ä', 'ä', 'Ü', 'ü', 'ß', ' ', '/'];
+        $destinationChars = ['Oe', 'oe', 'Ae', 'ae', 'Ue', 'ue', 'ss', '-', '-'];
+
+        foreach ($sourceChars as $key => $sourceChar) {
+            $string = str_replace($sourceChar, $destinationChars[$key], $string);
+        }
+
+        return $string;
+    }
 
 }
  
