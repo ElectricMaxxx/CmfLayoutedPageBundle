@@ -65,9 +65,10 @@ class LayoutAdminController extends AbstractBlockAdmin
                     'grids','sonata_type_collection',
                      array(),
                      array(
-                        'edit' => 'standard',
+                        'edit' => 'inline',
                         'inline' => 'table',
-                        'admin_code' => $this->embeddedGridAdminCode
+                        'admin_code' => $this->embeddedGridAdminCode,
+                         'sortable'  => 'position',
                      )
                 )
             ->end();
@@ -89,7 +90,8 @@ class LayoutAdminController extends AbstractBlockAdmin
 
         //set the parent documents for all grids to the current document
         foreach ($document->getGrids() as $grid) {
-            $grid->setParentDocument($this);
+            $grid->setParentDocument($document);
+            $grid->setName('Grid-'.$document->clearStringForName($grid->getTitle()));
         }
     }
 
@@ -105,7 +107,8 @@ class LayoutAdminController extends AbstractBlockAdmin
 
         //set the parent documents for all grids to the current document
         foreach ($document->getGrids() as $grid) {
-            $grid->setParentDocument($this);
+            $grid->setParentDocument($document);
+            $grid->setName('Grid-'.$document->clearStringForName($grid->getTitle()));
         }
     }
 

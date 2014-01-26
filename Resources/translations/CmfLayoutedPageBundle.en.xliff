@@ -18,17 +18,25 @@
                 <source>form.group_general</source>
                 <target>General</target>
             </trans-unit>
+            <trans-unit id="form.group_units">
+                <source>form.group_units</source>
+                <target>LayoutUnits</target>
+            </trans-unit>
             <trans-unit id="layout_manager">
                 <source>layout_manager</source>
                 <target>Layout manager</target>
             </trans-unit>
             <trans-unit id="dashboard.label_layout">
                 <source>dashboard.label_layout</source>
-                <target>Layouts</target>
+                <target>Layout</target>
             </trans-unit>
             <trans-unit id="dashboard.label_layout_grid">
                 <source>dashboard.label_layout_grid</source>
-                <target>LayoutGrids</target>
+                <target>LayoutGrid</target>
+            </trans-unit>
+            <trans-unit id="dashboard.label_layout_unit">
+                <source>dashboard.label_layout_unit</source>
+                <target>LayoutUnit</target>
             </trans-unit>
             <trans-unit id="dashboard.group_layout">
                 <source>dashboard.group_layout</source>
